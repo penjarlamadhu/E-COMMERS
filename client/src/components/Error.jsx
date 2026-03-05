@@ -1,5 +1,5 @@
 import React from 'react';
-import './Error.css';
+import '../styles/Error.css';
 
 const Error = ({ message, onDismiss }) => {
   return (
