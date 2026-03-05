@@ -1,0 +1,35 @@
+services:
+  # Backend API Service
+  - type: web
+    name: ecommerce-api
+    env: node
+    region: oregon
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        # Replace with your MongoDB Atlas connection string or use Render's MongoDB
+        value: mongodb+srv://your_mongodb_connection_string
+      - key: JWT_SECRET
+        # Generate a secure random string
+        value: your_secure_jwt_secret_key_here
+      - key: CLIENT_URL
+        # Your frontend URL on Render
+        value: https://your-frontend-app.onrender.com
+
+  # Frontend Static Site
+  - type: web
+    name: ecommerce-frontend
+    env: static
+    region: oregon
+    buildCommand: cd client && npm install && npm run build
+    staticPublishDirectory: client/dist
+    envVars:
+      - key: VITE_API_URL
+        # Your backend API URL on Render
+        value: https://ecommerce-api.onrender.com/api
+

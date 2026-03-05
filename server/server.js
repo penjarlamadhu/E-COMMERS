@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS configuration - allow common local dev ports
+// CORS configuration - allow all origins in production
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
   'http://localhost:5174',
@@ -32,13 +32,22 @@ const allowedOrigins = [
   'http://localhost:3007',
   'http://localhost:3008',
   'http://localhost:3009',
+  // Render domains
+  'https://*.onrender.com',
 ];
+
+// In production, allow all origins
+const isProduction = process.env.NODE_ENV === 'production';
+
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin: isProduction ? true : (origin, callback) => {
       // allow requests with no origin like curl or server-to-server
       if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) !== -1) {
+      if (allowedOrigins.some(allowed => 
+        allowed === origin || 
+        (allowed.includes('*') && origin.match(allowed.replace('*', '.*')))
+      )) {
         return callback(null, true);
       }
       return callback(new Error('CORS policy: Origin not allowed'));
