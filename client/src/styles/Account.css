@@ -1,0 +1,199 @@
+.account-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.account-page h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #212121;
+  font-weight: 700;
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+}
+
+.account-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e8e8e8;
+  width: 100%;
+  max-width: 600px;
+}
+
+.account-card h2 {
+  margin-bottom: 1.5rem;
+  color: #212121;
+  font-weight: 700;
+}
+
+.profile-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.profile-field label {
+  font-weight: 600;
+  color: #212121;
+  font-size: 0.95rem;
+}
+
+.profile-field p {
+  color: #878787;
+  margin: 0;
+}
+
+.edit-btn {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background-color: #1f4bb8;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #163a8a;
+  box-shadow: 0 2px 4px rgba(31, 75, 184, 0.3);
+}
+
+.profile-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #212121;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 0;
+  font-size: 0.95rem;
+  color: #212121;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1f4bb8;
+  box-shadow: 0 0 0 2px rgba(31, 75, 184, 0.1);
+}
+
+.form-section {
+  border-top: 1px solid #e8e8e8;
+  padding-top: 1.5rem;
+}
+
+.form-section h3 {
+  margin-bottom: 1rem;
+  color: #212121;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.save-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: #FFB800;
+  color: #212121;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+  background-color: #f9a825;
+  box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3);
+}
+
+.save-btn:disabled {
+  background-color: #e8e8e8;
+  color: #878787;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: #e8e8e8;
+  color: #212121;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #d8d8d8;
+}
+
+@media (max-width: 768px) {
+  .account-page {
+    padding: 1rem;
+  }
+
+  .account-card {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-card {
+    padding: 1rem;
+  }
+
+  .account-card h2 {
+    font-size: 1.3rem;
+  }
+}
